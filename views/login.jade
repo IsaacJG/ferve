@@ -1,0 +1,20 @@
+// Author: Isaac Grant
+// Copyright (C) 2013
+// All rights reserved
+
+extends base
+
+block content
+	div(class="row-fluid")
+		div(class="span12")
+			span(class="title")= "Login"
+			hr(class="style-one")
+			span(class="text large")= "Please login"
+	div(class="row-fluid", style="padding-top: 50px")
+		form(action="/login/submit", method="post")
+			div(class="span1")
+				i(class="icon-user", style="font-size: 70px;")
+			input(class="span3 offset2", type="text", name="user", id="user", autofocus="autofocus", autocomplete="off", style="height: 40px; font-fmaily: 'Dosis', sans-serif; font-size: 30px")
+			input(class="span3", type="password", name="password", id="password", autocomplete="off", style="height: 40px; font-fmaily: 'Dosis', sans-serif; font-size: 30px; margin-left: 15px")
+			div(class="span3 offset9", style="margin-top: 30px")
+				button(class="span10 btn btn-primary btn-large", type="submit")= "Login"

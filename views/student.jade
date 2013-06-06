@@ -1,0 +1,27 @@
+// Author: Isaac Grant
+// Copyright (C) 2013
+// All rights reserved
+
+extends base
+
+block content
+	div(class="row-fluid")
+		div(class="span12 title")= "Student Details"
+	div(class="row")
+		div(class="span12 text")
+			a(href="/admin")= "Back"
+	hr(class="style-one")
+	div(class="row-fluid")
+		div(class="span2 text bold noblock")= "Student Number: "
+		div(class="span1 text")= student
+	div(class="row-fluid")
+		div(class="span2 text bold noblock")= "Period: "
+		div(class="span1 text")= period
+	hr(class="style-one")
+	div(class="row-fluid")
+		div(class="span2")
+			form(action="/admin/chper/" + student, method="get", style="display: inline")
+				button(class="btn btn-warning btn-large", type="submit", style="display: inline; float: left")= "Change Period"
+		div(class="span1")
+			form(action="/admin/del/" + student, method="get", style="display: inline")
+				button(class="btn btn-danger btn-large", type="submit", style="display: inline; float: left")= "Delete"

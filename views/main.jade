@@ -1,0 +1,40 @@
+// Author: Isaac Grant
+// Copyright (C) 2013
+// All rights reserved
+
+extends base
+
+block content
+	div(class="row-fluid")
+		div(class="row")
+			div(class="span12 title", style="float: left") Admin Panel
+		div(class="row")
+			div(class="span12 text")
+				a(href='/admin/logout') Logout
+			hr(class="style-one")
+		div(class="row-fluid")
+			div(class="text", style="padding-bottom: 20px")
+				i(class="icon-plus", style="font-size: 30px;")
+				|  Add a student
+			form(action="/admin/addstudent", method="post")
+				div(class="row")
+					div(class="text", style="display: inline; padding-right: 15px")= "Period"
+					input(class="span3", type="text", name="period", id="period", autocomplete="off", style="height: 15px; font-family: 'Dosis', sans-serif; font-size: 12px;")
+				div(class="row")
+					div(class="text", style="display: inline; padding-right: 15px; float: left")= "Student Number"
+					input(class="span3", type="text", name="studentnum", id="studentnum", autocomplete="off", style="height: 15px; font-family: 'Dosis', sans-serif; font-size: 12px; display: inline; float: left")
+					div(class="span1", style="display: inline; float: left")
+						button(class="span8 btn btn-primary", type="submit", style="font-size: 30px; float: left")= "+"
+	div(class="row")
+		hr(class="style-one")
+		if students
+			each student in students
+				if student != ""
+					div(id="well", class="row well well-small")
+						div(class="span11 offset1 user")
+							span
+								i(class="icon-caret-left")
+								a(href="/admin/" + student)= " " + student + " "
+								i(class="icon-caret-right")
+		else
+			div(class="span6", id="no_users")= "No users to display"

@@ -1,0 +1,28 @@
+// Author: Isaac Grant
+// Copyright (C) 2013
+// All rights reserved
+
+extends base
+
+block content
+	div(class="row-fluid")
+		div(class="span12 title")= "Change Period"
+	div(class="row-fluid")
+		div(class="span12 text")
+			a(href="/admin/" + student)= "Back"
+	hr(class="style-one")
+	div(class="row-fluid")
+		div(class="span2 text bold noblock")= "Student Number: "
+		div(class="span1 text")= student
+	div(class="row-fluid")
+		div(class="span2 text bold noblock")= "Period: "
+		div(class="span1 text")= period
+	hr(class="style-one")
+	div(class="row-fluid")
+		form(action='/admin/chper/' + student + '/submit', method='get')
+			div(class="span12")
+				div(class="text", style="display: inline; float: left; padding-right: 15px")= "New Period"
+				div(class="span1")
+					input(type='text', name='newperiod', id='newperiod', autocomplete="off", style="height: 15px; font-family: 'Dosis', sans-serif; font-size: 12px; display: inline; width: 50px")
+				div(class="span1")
+					button(class="btn btn-primary", type='submit', style='padding-left: 15px')= "Submit"

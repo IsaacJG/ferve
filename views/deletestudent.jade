@@ -1,0 +1,17 @@
+// Author: Isaac Grant
+// Copyright (C) 2013
+// All rights reserved
+
+extends base
+
+block content
+	div(class="row-fluid")
+		span(class="title")= "Delete Student"
+		hr(class="style-one")
+	div(class="row-fluid")
+		div(class="span12 text", style="padding-bottom: 30px")= "Are you sure you want to delete " + student + "?"
+	div(class="row-fluid")
+		form(action='/admin/del/' + student + '/submit', method='get', style="display: inline; float: left; padding-right: 15px")
+			button(class="btn btn-danger", type='submit')= "Yes"
+		form(action='/admin/' + student, method='get', style="display: inline; float: left")
+			button(class="btn btn-primary", type='submit')= "No"
