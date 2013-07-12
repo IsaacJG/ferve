@@ -231,7 +231,7 @@ exports.changePeriodSubmit = function (req, res) {
 				if (!exists) {
 					exec('mkdir ' + symRoot.replace('%s', req.query.newperiod), stdExecCallback);
 				}
-				exec('ln --symbolic --target-directory=' + symRoot.replace(req.query.newperiod) + ' ' + studentHome.replace('%s', req.query.newperiod), stdExecCallback);
+				exec('ln --symbolic --target-directory=' + symRoot.replace('%s', req.query.newperiod) + ' ' + studentHome.replace('%s', req.query.newperiod), stdExecCallback);
 			});
 			// delete old home
 			exec('rm -rf ' + studentHome.replace('%s', period), stdExecCallback);
