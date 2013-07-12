@@ -146,7 +146,8 @@ function getStudentPeriod (student, callback) {
 		if (error) {
 			console.log(error);
 		}
-		callback(stdout.substr(stdout.indexOf('/home') + 6, stdout.length).substr(0, stdout.indexOf(':')+1));
+		var hold = stdout.substr(stdout.indexOf('/home') + 6, stdout.length);
+		callback(hold.substr(0, hold.indexOf('/')));
 	});
 }
 
