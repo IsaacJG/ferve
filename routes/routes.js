@@ -11,7 +11,12 @@ var sqlite3 = require('sqlite3').verbose();
 var fs = require('fs');
 var db = new sqlite3.Database('ferve.db');
 
-var USERS_TO_HIDE = ['isaac', 'lucas', 'rdmills'];
+//==============================================
+//	USERS TO HIDE FROM THE DISPLAY (hide sysadmins);
+//	this could also be done when parsing the passwd file,
+//	but this is the path of least resistance (quick n' dirty)
+//==============================================
+var USERS_TO_HIDE = ['isaac', 'lucas', 'rdmills']; // this is checked on line 135
 
 //==============================================
 //	INTERNAL & UTILITY FUNCTIONS
