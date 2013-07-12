@@ -11,6 +11,7 @@ var sqlite3 = require('sqlite3').verbose();
 var fs = require('fs');
 var db = new sqlite3.Database('ferve.db');
 
+var USERS_TO_HIDE = ['isaac', 'lucas', 'rdmills'];
 
 //==============================================
 //	INTERNAL & UTILITY FUNCTIONS
@@ -124,7 +125,16 @@ function getUserList (callback) {
 		var userList = [];
 		stdout.split('\n').forEach(function (element, index, array) {
 			if (element.indexOf('/home') > -1) {
-				userList.push(element.split(':')[0]);
+				var user = element.split(':')[0];
+				var add = true;
+				USERS_TO_HIDE.forEach(function (element, index, array) {
+					if (user === element) {
+						add = false;
+					}
+				});
+				if (add) {
+					userList.push(user);
+				}
 			}
 		});
 		callback(userList);
