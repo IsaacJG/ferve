@@ -226,7 +226,7 @@ exports.changePeriodSubmit = function (req, res) {
 			var symRoot = '/usr/share/nginx/html/%s/';
 			var studentHome = '/home/%s/' + req.params.student;
 			// move student directory and create new symlink
-			exec('usermod --home ' + studentHome.replace('%s', req.query.newperiod) + ' --move-home', stdExecCallback);
+			exec('usermod --home ' + studentHome.replace('%s', req.query.newperiod) + ' --move-home ' + req.params.student, stdExecCallback);
 			fs.exists(symRoot.replace('%s', req.query.newperiod), function (exists) {
 				if (!exists) {
 					exec('mkdir ' + symRoot.replace('%s', req.query.newperiod), stdExecCallback);
