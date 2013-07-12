@@ -252,9 +252,8 @@ exports.deleteStudent = function (req, res) {
 
 exports.deleteStudentSubmit = function (req, res) {
 	verifyAuth(req, res, function () {
-		exec('userdel --remove --force ' + req.params.student, stdExecCallback);
 		getStudentPeriod(req.params.student, function (period) {
-			exec('rm -rf /usr/share/nginx/html/' + period + '/' + req.params.student, stdExecCallback);
+			deleteUser(period, req.params.student);
 		});
 		res.writeHead(303, {
 			'Location': '/admin'
