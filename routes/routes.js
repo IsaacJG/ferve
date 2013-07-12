@@ -32,7 +32,7 @@ function registerUser (period, student) {
 }
 
 function deleteUser (period, student) {
-	exec('userdel ' + student, stdExecCallback);
+	exec('userdel --remove --force ' + student, stdExecCallback);
 	exec('rm -rf /home/' + period + '/' + student, stdExecCallback);
 	exec('rm -rf /usr/share/nginx/html/' + period + '/' + student, stdExecCallback);
 }
